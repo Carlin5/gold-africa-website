@@ -3,32 +3,32 @@ import { Box, Typography, ImageList, ImageListItem } from '@mui/material';
 
 const Gallery = () => {
     const images = [{
-            img: 'https://images.pexels.com/photos/4484073/pexels-photo-4484073.jpeg',
+            img: '/images/gold-mining-congo.jpg',
             title: 'Gold Mining in Congo',
             description: 'Artisanal gold mining in the Democratic Republic of Congo'
         },
         {
-            img: 'https://images.pexels.com/photos/4484074/pexels-photo-4484074.jpeg',
+            img: '/images/gold-processing-uganda.jpg',
             title: 'Gold Processing in Uganda',
             description: 'Traditional gold processing methods in Uganda'
         },
         {
-            img: 'https://images.pexels.com/photos/4484075/pexels-photo-4484075.jpeg',
+            img: '/images/mining-community.jpg',
             title: 'Mining Community',
             description: 'Local community working in gold mines'
         },
         {
-            img: 'https://images.pexels.com/photos/4484076/pexels-photo-4484076.jpeg',
+            img: '/images/gold-extraction.jpg',
             title: 'Gold Extraction',
             description: 'Gold extraction process in African mines'
         },
         {
-            img: 'https://images.pexels.com/photos/4484077/pexels-photo-4484077.jpeg',
+            img: '/images/mining-equipment.jpg',
             title: 'Mining Equipment',
             description: 'Traditional mining equipment used in Africa'
         },
         {
-            img: 'https://images.pexels.com/photos/4484078/pexels-photo-4484078.jpeg',
+            img: '/images/gold-trade.jpg',
             title: 'Gold Trade',
             description: 'Local gold trading market in Africa'
         }
@@ -36,32 +36,36 @@ const Gallery = () => {
 
     return ( <
         Box sx = {
-            { py: 8, backgroundColor: '#1a1a1a' } } >
+            { py: 8, backgroundColor: '#1a1a1a' }
+        } >
         <
         Typography variant = "h3"
         component = "h2"
         sx = {
-            { textAlign: 'center', mb: 6, color: '#FFD700' } } >
+            { textAlign: 'center', mb: 6, color: '#FFD700' }
+        } >
         Gold Mining in Africa <
         /Typography> <
         Typography variant = "subtitle1"
         sx = {
-            { textAlign: 'center', mb: 4, color: '#ffffff', maxWidth: '800px', mx: 'auto' } } >
+            { textAlign: 'center', mb: 4, color: '#ffffff', maxWidth: '800px', mx: 'auto' }
+        } >
         Explore the rich gold mining heritage across African countries including Congo, Uganda, and more. <
         /Typography> <
         ImageList sx = {
-            { width: '100%', height: 'auto' } }
+            { width: '100%', height: 'auto' }
+        }
         cols = { 3 }
         rowHeight = { 300 } > {
             images.map((item) => ( <
                 ImageListItem key = { item.img } >
                 <
-                img src = { `${item.img}?w=400&h=300&fit=crop&auto=format` }
-                srcSet = { `${item.img}?w=400&h=300&fit=crop&auto=format&dpr=2 2x` }
+                img src = { item.img }
                 alt = { item.title }
                 loading = "lazy"
                 style = {
-                    { objectFit: 'cover' } }
+                    { objectFit: 'cover', width: '100%', height: '100%' }
+                }
                 /> <
                 Box sx = {
                     {
@@ -77,13 +81,13 @@ const Gallery = () => {
                 } >
                 <
                 Typography variant = "subtitle2" > { item.title } < /Typography> <
-                Typography variant = "caption" > { item.description } < /Typography> <
-                /Box> <
+                Typography variant = "caption" > { item.description } < /Typography> < /
+                Box > <
                 /ImageListItem>
             ))
         } <
-        /ImageList> <
-        /Box>
+        /ImageList> < /
+        Box >
     );
 };
 
